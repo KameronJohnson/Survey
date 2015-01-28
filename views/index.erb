@@ -14,6 +14,6 @@
 <ul>
   <% @surveys.each do |survey| %>
   <li>
-    <a href="/survey/ <%=@survey.id()%>"><%= survey.survey_name %></a></li>
+    <a href="/survey/ <%=survey.id()%>"><%= survey.survey_name %></a></li>
     <% end %>
 </ul>
