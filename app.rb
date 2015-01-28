@@ -41,7 +41,8 @@ end
 
 post('/question/:id') do
   @question = Question.find(params.fetch("id"))
+  survey_id = @question.survey_id()
   @question.delete()
   @questions = Question.all()
-  erb(:submission)
+  redirect("/survey/#{survey_id}")
 end

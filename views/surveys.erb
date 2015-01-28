@@ -7,7 +7,7 @@
   <label for='the_question'> Question: </label>
   <input id='the_question' name='the_question' type='text'>
 
-  <button type="submit">Add Question</button>
+  <button type="submit" class="btn btn-primary">Add Question</button>
 </form>
 
 <% if @survey.questions().any?() %>
@@ -19,8 +19,8 @@
     <%= question.the_question() %>
     <form action="/question/<%= question.id() %>" method="post"
       <input name="_method" type="hidden" value="delete">
-      <button type="submit">Delete</button>
-    </form>  
+      <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+    </form>
   </li>
   <% end %>
 </ul>
@@ -32,7 +32,7 @@
 <form action="/survey/<%= @survey.id() %>" method="post"
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete Survey</button>
+  <button type="submit" class="btn btn-sm btn-danger">Delete Survey</button>
 </form>
 <br>
 <a href='/'>Back to Home Page</a>
