@@ -13,7 +13,9 @@
 
 <ul>
   <% @surveys.each do |survey| %>
-  <li>
-    <a href="/survey/ <%=survey.id()%>"><%= survey.survey_name %></a></li>
+  <li style="margin: 5px auto;">
+    <a href="/survey/ <%=survey.id()%>"><button type="submit">Edit</button></a>  <%= survey.survey_name %>
     <% end %>
+  </li>
+
 </ul>

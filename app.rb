@@ -15,6 +15,11 @@ post('/surveys') do
   erb(:index)
 end
 
+get('/questions') do
+  @questions = Question.all()
+  erb(:surveys)
+end
+
 post('/questions') do
   question_var = params.fetch("the_question")
   survey_id = params.fetch("survey_id")
@@ -27,7 +32,16 @@ get('/survey/:id') do
   erb(:surveys)
 end
 
-get('/questions') do
+post('/survey/:id') do
+  @survey = Survey.find(params.fetch("id"))
+  @survey.delete()
+  @surveys = Survey.all()
+  redirect('/')
+end
+
+post('/question/:id') do
+  @question = Question.find(params.fetch("id"))
+  @question.delete()
   @questions = Question.all()
-  erb(:surveys)
+  erb(:submission)
 end

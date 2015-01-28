@@ -17,6 +17,10 @@
   <% @survey.questions().each() do |question| %>
   <li>
     <%= question.the_question() %>
+    <form action="/question/<%= question.id() %>" method="post"
+      <input name="_method" type="hidden" value="delete">
+      <button type="submit">Delete</button>
+    </form>  
   </li>
   <% end %>
 </ul>
@@ -25,4 +29,10 @@
   <p>Well, why don't you ask a question?</p>
 <% end %>
 
+<form action="/survey/<%= @survey.id() %>" method="post"
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Survey</button>
+</form>
+<br>
 <a href='/'>Back to Home Page</a>
